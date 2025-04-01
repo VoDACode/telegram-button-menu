@@ -11,6 +11,13 @@ export default class SetLangCommand extends Command {
         const callbackData = JSON.parse(context.ctx.callbackQuery?.data);
         const lang = String(callbackData.key).toLowerCase();
         const currentUser = storage.get(context.ctx.from?.id as number);
+        if(currentUser == undefined && lang == 'en'){
+            storage.set({
+                telegramId: context.ctx.from?.id as number,
+                languageCode: lang
+            });
+            return Promise.resolve();
+        }
         if(lang == currentUser?.languageCode){
             return Promise.resolve();
         }
@@ -19,7 +26,7 @@ export default class SetLangCommand extends Command {
             telegramId: context.ctx.from?.id as number,
             languageCode: lang
         });
-        
+
         menuManager.displayMenu(context.ctx, 'lang');
         return Promise.resolve();
     }
