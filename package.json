@@ -1,15 +1,24 @@
 {
   "name": "telegram-button-menu",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Makes it easier to create a button menu in Telegram bots",
   "main": "index.js",
+  "exports": {
+    "./*": "./dist/src/*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "publish": "npm run build && npm publish",
+    "test": "tsc && node dist/test/index.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/VoDACode/telegram-button-menu.git"
   },
+  "bugs": {
+    "url": "https://github.com/VoDACode/telegram-button-menu/issues"
+  },
+  "homepage": "https://github.com/VoDACode/telegram-button-menu",
   "keywords": [
     "telegram",
     "bot",
@@ -19,5 +28,12 @@
     "keyboard"
   ],
   "author": "VoDACode",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "telegraf": "^4.16.3"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.7",
+    "@types/node": "^22.13.14"
+  }
 }

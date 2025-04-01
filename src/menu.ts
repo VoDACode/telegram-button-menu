@@ -1,5 +1,5 @@
 import { Context } from "telegraf";
-import { BACK_BUTTON_KEY, DefaultTranslateImpl, Translate, USER_IN_MENU_KEY } from "./Translate";
+import { BACK_BUTTON_KEY, DefaultTranslateImpl, Translate, USER_IN_MENU_KEY } from "./translate";
 
 export type FindMenuItemResult = {
     item: MenuItem;
@@ -32,6 +32,16 @@ class MenuItemManager {
     private constructor() {
     }
 
+    public setTranslate(translate: Translate) {
+        if (translate == null) {
+            throw new Error("Translate cannot be null");
+        }
+        this.translate = translate;
+    }
+    public getTranslate(): Translate {
+        return this.translate;
+    }
+
     public setMenuStructure(menu: MenuItem) {
         this.menuStructure = menu;
     }
@@ -52,7 +62,7 @@ class MenuItemManager {
                 ctx.reply(`${this.translate.of(ctx, USER_IN_MENU_KEY)} ${this.translate.of(ctx, menuItem.item?.key)}`, { reply_markup: replyMarkup });
             }
         } else {
-            ctx.reply("ERROR: Menu key '" + menuId + " not found");
+            ctx.reply("ERROR: Menu key '" + menuId + "' not found");
         }
     }
 
@@ -115,4 +125,4 @@ class MenuItemManager {
     }
 }
 
-export const menuItemManager = MenuItemManager.instance;
+export const menuManager = MenuItemManager.instance;
