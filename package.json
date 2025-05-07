@@ -2,7 +2,7 @@
   "name": "telegram-button-menu",
   "version": "0.0.1",
   "description": "Makes it easier to create a button menu in Telegram bots",
-  "main": "index.js",
+  "main": "./dist/src/index.js",
   "exports": {
     "./*": "./dist/src/*"
   },
