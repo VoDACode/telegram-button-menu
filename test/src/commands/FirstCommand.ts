@@ -1,4 +1,4 @@
-import { Command, CommandContext } from "../../src/commands";
+import { Command, CommandContext } from "telegram-button-menu/command";
 
 export default class FirstCommand extends Command {
     public get name(): string {

@@ -1,10 +1,7 @@
 import { Telegraf } from 'telegraf';
 import { config } from 'dotenv';
-import * as path from 'path';
-import * as fs from 'fs';
-import { Command } from '../src/commands';
-import { setupMenu, commandManager } from '../src';
-import { menuManager } from '../src/menu';
+import { setupMenu, commandManager } from "telegram-button-menu"
+import { menuManager } from 'telegram-button-menu/menu';
 import { MENU_STRUCTURE } from './menu';
 import FirstCommand from './commands/FirstCommand';
 import { TestTranslateImpl } from './translate';

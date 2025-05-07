@@ -1,5 +1,5 @@
 import { Context } from "telegraf";
-import { Translate } from "../src/translate";
+import { Translate } from "telegram-button-menu/translate";
 import { storage } from "./storage";
 
 export class TestTranslateImpl extends Translate {

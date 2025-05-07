@@ -1,15 +1,37 @@
 {
   "name": "telegram-button-menu",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Makes it easier to create a button menu in Telegram bots",
-  "main": "index.js",
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "exports": {
-    "./*": "./dist/src/*"
+    ".": {
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./command": {
+      "import": "./dist/commands.js",
+      "default": "./dist/commands.js"
+    },
+    "./menu": {
+      "import": "./dist/menu.js",
+      "default": "./dist/menu.js"
+    },
+    "./handlers": {
+      "import": "./dist/handlers.js",
+      "default": "./dist/handlers.js"
+    },
+    "./translate": {
+      "import": "./dist/translate.js",
+      "default": "./dist/translate.js"
+    }
   },
   "scripts": {
     "build": "tsc",
-    "publish": "npm run build && npm publish",
-    "test": "tsc && node dist/test/index.js"
+    "pub": "npm run build && npm publish"
   },
   "repository": {
     "type": "git",
@@ -33,7 +55,6 @@
     "telegraf": "^4.16.3"
   },
   "devDependencies": {
-    "dotenv": "^16.4.7",
     "@types/node": "^22.13.14"
   }
 }

@@ -1,4 +1,4 @@
-import { MenuItem } from "../src";
+import { MenuItem } from "telegram-button-menu/menu"
 
 export const MENU_STRUCTURE: MenuItem = {
     key: "main_menu",

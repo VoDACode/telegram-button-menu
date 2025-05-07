@@ -1,5 +1,5 @@
-import { Command, CommandContext } from "../../src/commands";
-import { menuManager } from "../../src/menu";
+import { Command, CommandContext } from "telegram-button-menu/command";
+import { menuManager } from "telegram-button-menu/menu";
 import { storage } from "../storage";
 
 export default class SetLangCommand extends Command {
